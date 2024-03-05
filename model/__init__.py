@@ -1,1 +1,1 @@
-from model import GoogLeNet
+from .model import GoogLeNet

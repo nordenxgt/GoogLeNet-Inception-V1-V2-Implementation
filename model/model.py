@@ -25,11 +25,11 @@ class InceptionModule(nn.Module):
         self.branch1 = Conv(in_channels, ch1x1, kernel_size=1, stride=1, padding=0)
         self.branch2 = nn.Sequential(
             Conv(in_channels, ch3x3red, kernel_size=1, stride=1, padding=0),
-            Conv(in_channels, ch3x3, kernel_size=3, stride=1, padding=1)
+            Conv(ch3x3red, ch3x3, kernel_size=3, stride=1, padding=1)
         )
         self.branch3 = nn.Sequential(
             Conv(in_channels, ch5x5red, kernel_size=1, stride=1, padding=0),
-            Conv(in_channels, ch5x5, kernel_size=3, stride=1, padding=1)
+            Conv(ch5x5red, ch5x5, kernel_size=3, stride=1, padding=1)
         )
         self.branch4 = nn.Sequential(
             nn.MaxPool2d(kernel_size=3, stride=1, padding=1), 
@@ -62,11 +62,10 @@ class AuxiliaryClassifier(nn.Module):
         x = self.fc2(x)
         return x
 
-
 class GoogLeNet(nn.Module):
-    def __init__(self, in_channels: int, num_classes: int = 1000, aux_flag: bool = True):
+    def __init__(self, num_classes: int = 1000, aux_flag: bool = True):
         super().__init__()
-        self.conv1 = nn.Conv2d(in_channels, 64, kernel_size=7, stride=2, padding=3)
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3)
         self.maxpool1 = nn.MaxPool2d(kernel_size=3, stride=2, ceil_mode=True)
         
         self.conv2 = nn.Conv2d(64, 64, kernel_size=1)
@@ -92,7 +91,7 @@ class GoogLeNet(nn.Module):
         
         self.avgpool = nn.AvgPool2d(kernel_size=7, stride=1)
         self.dropout = nn.Dropout(0.4)
-        self.linear = nn.Linear(1024*7*7, num_classes)
+        self.linear = nn.Linear(1024, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.conv1(x)

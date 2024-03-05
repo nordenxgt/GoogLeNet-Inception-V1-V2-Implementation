@@ -1,12 +1,12 @@
 # GoogLeNet-Inception-V1-Implementation
 
-## Architecture
-
-<img src="images/architecture.png" alt="GoogLeNet Architecture" style="width:100%;">
-
 "Going Deeper with Convolutions" by Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke and Andrew Rabinovich.
 
 Paper: https://arxiv.org/pdf/1409.4842.pdf
+
+## Architecture
+
+<img src="images/architecture.png" alt="GoogLeNet Architecture" style="width:100%;">
 
 ## Inception Module
 

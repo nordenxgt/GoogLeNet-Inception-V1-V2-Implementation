@@ -1,8 +1,14 @@
-# GoogLeNet-Inception-V1-Implementation
+# GoogLeNet-Inception-V1-V2-Implementation
+
+## GoogLeNet (Inception-V1)
 
 "Going Deeper with Convolutions" by Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke and Andrew Rabinovich.
 
 Paper: https://arxiv.org/pdf/1409.4842.pdf
+
+## Inception-V2
+
+Simply, it introduces the use of Batch Normalization inside the Inception InceptionModule. Check out here for more: https://paperswithcode.com/method/inception-v2.
 
 ## Architecture
 
@@ -28,14 +34,10 @@ Run script below to checkout the model informations
 python info.py
 ```
 
-<img src="images/info1.png" alt="GoogLeNet Network" style="width:100%;">
-<img src="images/info2.png" alt="GoogLeNet Network" style="width:100%;">
-<img src="images/info3.png" alt="GoogLeNet Network" style="width:100%;">
-
 ## Usage
 
 Before running the script, place your data directory location for both train and test data in `root_dir="{DIR}"` here at [dataloader.py](./dataloader/dataloader.py)
 
 ```sh
-python train.py --epochs 100
+python train.py --epochs 100 --version 1
 ```

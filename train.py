@@ -10,8 +10,11 @@ from model import GoogLeNet
 from dataloader import dataloader
 from utils import plot_loss_accuracy, calculate_accuracy
 
-def main(epochs: int):
-    model = GoogLeNet()
+def main(epochs: int, version: int):
+    model = None
+    if version == 1: model = GoogLeNet() 
+    elif version == 2: model = GoogLeNet(bnorm=True) 
+    else: raise ValueError("Version 1 and 2 is supported")
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     lr = 1e-2
@@ -68,5 +71,6 @@ def main(epochs: int):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Script")
     parser.add_argument("--epochs", type=int, default=100)
+    parser.add_argument("--version", type=int, default=1)
     args = parser.parse_args()
-    main(args.epochs)
+    main(args.epochs, args.version)

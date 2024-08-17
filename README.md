@@ -38,6 +38,10 @@ python info.py
 
 Before running the script, place your data directory location for both train and test data in `root_dir="{DIR}"` here at [dataloader.py](./dataloader/dataloader.py)
 
+```sh
+python train.py --epochs 100 --version 1
+```
+
 ## Citation
 
 ```
@@ -50,8 +54,4 @@ Before running the script, place your data directory location for both train and
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/1409.4842}, 
 }
-```
-
-```sh
-python train.py --epochs 100 --version 1
 ```

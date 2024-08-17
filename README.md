@@ -38,6 +38,20 @@ python info.py
 
 Before running the script, place your data directory location for both train and test data in `root_dir="{DIR}"` here at [dataloader.py](./dataloader/dataloader.py)
 
+## Citation
+
+```
+@misc{szegedy2014goingdeeperconvolutions,
+      title={Going Deeper with Convolutions}, 
+      author={Christian Szegedy and Wei Liu and Yangqing Jia and Pierre Sermanet and Scott Reed and Dragomir Anguelov and Dumitru Erhan and Vincent Vanhoucke and Andrew Rabinovich},
+      year={2014},
+      eprint={1409.4842},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/1409.4842}, 
+}
+```
+
 ```sh
 python train.py --epochs 100 --version 1
 ```
